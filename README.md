@@ -5,7 +5,7 @@ Docker image to run an isolated ZeroTier-One instance purely as a network contro
 This is a modification of the official ZeroTier docker container to specialize it for
 one purpose only: acting as an isolated network controller. Because it doesn't need
 to join any networks, elevated permissions don't need to be granted. Additionally,
-this modified image makes the HTTP API accessible over port 8001 for communication
+this modified image makes the HTTP API accessible over port 9993 for communication
 outside the Docker container.
 
 ## Usage
