@@ -11,7 +11,7 @@ mkztfile() {
 }
 
 echo "Setting configuration..."
-echo '{"settings": {"allowManagementFrom": ["0.0.0.0/0"]}}' > /var/lib/zerotier-one/local.conf
+echo '{"settings": {"allowManagementFrom": ["::/0"]}}' > /var/lib/zerotier-one/local.conf
 
 if [ "x$ZEROTIER_API_SECRET" != "x" ]; then
   mkztfile authtoken.secret 0600 "$ZEROTIER_API_SECRET"
