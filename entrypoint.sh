@@ -20,5 +20,11 @@ fi
 echo "Starting ZeroTier One..."
 setsid /usr/sbin/zerotier-one &
 
+if [[ ! -z "$API_PORT" ]]; then
+  echo "Proxying ZeroTier One API to 0.0.0.0:$API_PORT..."
+  ZT_PORT=$(cat /var/lib/zerotier-one/zerotier-one.port)
+  setsid socat tcp-listen:$API_PORT,reuseaddr,fork tcp:localhost:$ZT_PORT &
+fi
+
 echo "Sleeping forever..."
 sleep infinity
